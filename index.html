@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Learn Italian at your own pace with friendly lessons, useful phrases, and spoken audio."
+    />
+    <meta name="theme-color" content="#fff9e9" />
+    <title>parla — a little Italian, every day</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar" aria-label="Main navigation">
+        <a class="brand" href="#" aria-label="Parla home">
+          <span class="brand-mark" aria-hidden="true">p</span>
+          <span>parla<span class="brand-period">.</span></span>
+        </a>
+
+        <div class="sidebar-label">YOUR SPACE</div>
+        <nav class="side-nav">
+          <button class="nav-link is-active" data-view="home">
+            <span class="nav-icon" aria-hidden="true">⌂</span> Home
+          </button>
+          <button class="nav-link" data-view="phrases">
+            <span class="nav-icon" aria-hidden="true">▤</span> Phrasebook
+          </button>
+          <button class="nav-link" data-view="practice">
+            <span class="nav-icon" aria-hidden="true">✳</span> Quick practice
+          </button>
+        </nav>
+
+        <div class="sidebar-card">
+          <span class="sidebar-card-sparkle" aria-hidden="true">✳</span>
+          <p class="sidebar-card-title">Little by little.</p>
+          <p class="sidebar-card-copy">A few minutes a day can take you somewhere lovely.</p>
+          <span class="sidebar-card-italian">Piano piano</span>
+          <span class="sidebar-card-translation">Slowly, slowly</span>
+        </div>
+
+        <div class="sidebar-footer">
+          <span class="online-dot"></span>
+          <span>Your learning journey</span>
+          <span class="footer-heart" aria-hidden="true">♥</span>
+        </div>
+      </aside>
+
+      <main class="main-content">
+        <header class="topbar">
+          <div class="mobile-brand">
+            <span class="brand-mark" aria-hidden="true">p</span> parla<span class="brand-period">.</span>
+          </div>
+          <div class="breadcrumb"><span>YOUR SPACE</span><span class="breadcrumb-slash">/</span><strong id="breadcrumb-current">HOME</strong></div>
+          <div class="topbar-right">
+            <div class="streak-pill" title="Days you've practiced">
+              <span aria-hidden="true">☀</span>
+              <span id="streak-count">1</span>
+              <span class="streak-label">day streak</span>
+            </div>
+            <div class="avatar" aria-label="Your profile">C</div>
+          </div>
+        </header>
+
+        <section class="view is-visible" id="home-view" aria-labelledby="welcome-title">
+          <div class="welcome-row">
+            <div>
+              <p class="eyebrow"><span class="eyebrow-line"></span> <span id="today-date">OGGI</span></p>
+              <h1 id="welcome-title">Ciao, learner <span class="wave">✳</span></h1>
+              <p class="welcome-copy">A little Italian goes a long way. Ready for today?</p>
+            </div>
+            <div class="daily-goal">
+              <div class="goal-ring" id="goal-ring" aria-label="Daily goal: 0 of 10 minutes">
+                <span><span id="goal-minutes">0</span><span class="goal-divider">/</span>10</span>
+              </div>
+              <div><strong>Daily goal</strong><span>10 min a day</span></div>
+            </div>
+          </div>
+
+          <article class="hero-card">
+            <div class="hero-content">
+              <span class="hero-kicker"><span class="hero-kicker-dot"></span> YOUR NEXT LITTLE ADVENTURE</span>
+              <h2>Say hello to<br />Italian.</h2>
+              <p>Start with the words that open doors, start conversations, and make you feel at home.</p>
+              <button class="button button-light" id="start-lesson">
+                Start your first lesson <span aria-hidden="true">→</span>
+              </button>
+              <div class="hero-meta"><span aria-hidden="true">◷</span> 5 minutes <span class="meta-dot">·</span> Beginner friendly</div>
+            </div>
+            <div class="hero-art" aria-hidden="true">
+              <span class="hero-orb"></span>
+            </div>
+          </article>
+
+          <section class="stats-row" aria-label="Learning overview">
+            <article class="stat-card">
+              <span class="stat-icon stat-icon-peach" aria-hidden="true">↗</span>
+              <div><span class="stat-label">WORDS LEARNED</span><strong id="words-learned">0</strong><span class="stat-caption">Every word counts</span></div>
+            </article>
+            <article class="stat-card">
+              <span class="stat-icon stat-icon-green" aria-hidden="true">✓</span>
+              <div><span class="stat-label">LESSONS DONE</span><strong id="lessons-done">0<span class="stat-total"> / 6</span></strong><span class="stat-caption">Your journey is just beginning</span></div>
+            </article>
+            <article class="stat-card">
+              <span class="stat-icon stat-icon-yellow" aria-hidden="true">♡</span>
+              <div><span class="stat-label">SAVED PHRASES</span><strong id="saved-count">0</strong><span class="stat-caption">Your little phrase collection</span></div>
+            </article>
+          </section>
+
+          <section class="learning-section" id="learning-path">
+            <div class="section-heading">
+              <div><p class="eyebrow section-eyebrow">🌱 YOUR LEARNING PATH</p><h2>One step at a time</h2></div>
+              <button class="text-button" data-open-view="phrases">Explore phrasebook <span aria-hidden="true">→</span></button>
+            </div>
+            <div class="lesson-grid" id="lesson-grid"></div>
+          </section>
+
+          <section class="bottom-row">
+            <article class="quote-card">
+              <span class="quote-mark" aria-hidden="true">“</span>
+              <div>
+                <p class="quote-label">A LITTLE INSPIRATION</p>
+                <blockquote>La vita è bella.</blockquote>
+                <p class="quote-translation">Life is beautiful.</p>
+              </div>
+              <button class="round-audio quote-audio" data-speak="La vita è bella." aria-label="Listen to La vita è bella">♫</button>
+            </article>
+            <button class="practice-card" data-open-view="practice">
+              <span class="practice-card-icon" aria-hidden="true">✳</span>
+              <span><span class="practice-card-label">GOT A MINUTE?</span><strong>Put your Italian<br />to the test</strong><span class="practice-card-link">Try a quick practice <span aria-hidden="true">→</span></span></span>
+              <span class="practice-arrow" aria-hidden="true">↗</span>
+            </button>
+          </section>
+          <footer class="page-footer">Made with <span aria-label="love">♥</span> and a little espresso.</footer>
+        </section>
+
+        <section class="view" id="phrases-view" aria-labelledby="phrases-title" hidden>
+          <div class="page-intro">
+            <p class="eyebrow"><span class="eyebrow-line"></span> YOUR POCKET-SIZED ITALIAN</p>
+            <h1 id="phrases-title">The phrasebook<span class="title-period">.</span></h1>
+            <p>Useful little things to say, wherever the day takes you.</p>
+          </div>
+          <div class="phrase-toolbar">
+            <label class="search-box">
+              <span aria-hidden="true">⌕</span>
+              <input id="phrase-search" type="search" placeholder="Find a word or phrase..." aria-label="Search phrases" />
+            </label>
+            <button class="filter-chip is-selected" data-category="All">All phrases</button>
+            <button class="filter-chip" data-category="Greetings">Greetings</button>
+            <button class="filter-chip" data-category="Everyday">Everyday</button>
+            <button class="filter-chip" data-category="Food">Food & drink</button>
+            <button class="filter-chip" data-category="Travel">Travel</button>
+            <button class="filter-chip saved-filter" id="saved-filter">♡ Saved</button>
+          </div>
+          <div class="phrase-count" id="phrase-count"></div>
+          <div class="phrase-grid" id="phrase-grid"></div>
+          <div class="empty-state" id="phrase-empty" hidden>
+            <span aria-hidden="true">☁</span><h2>No phrases found</h2><p>Try a different search or category.</p>
+          </div>
+        </section>
+
+        <section class="view" id="practice-view" aria-labelledby="practice-title" hidden>
+          <div class="page-intro">
+            <p class="eyebrow"><span class="eyebrow-line"></span> PLAY YOUR WAY</p>
+            <h1 id="practice-title">A little learning, a lot of play<span class="title-period">.</span></h1>
+            <p>Pick a game, have a go, and let your Italian grow.</p>
+          </div>
+          <div class="game-picker" id="game-picker" aria-label="Choose a learning game">
+            <button class="game-choice" data-game="match">
+              <span class="game-choice-icon game-icon-peach" aria-hidden="true">▦</span>
+              <span class="game-choice-copy"><span class="game-choice-kicker">FLIP & FIND</span><strong>Phrase pairs</strong><span>Match Italian phrases with their meanings.</span></span>
+              <span class="game-choice-arrow" aria-hidden="true">→</span>
+            </button>
+            <button class="game-choice" data-game="listen">
+              <span class="game-choice-icon game-icon-green" aria-hidden="true">♫</span>
+              <span class="game-choice-copy"><span class="game-choice-kicker">ASCOLTA!</span><strong>Listen & choose</strong><span>Hear an Italian phrase and pick what it means.</span></span>
+              <span class="game-choice-arrow" aria-hidden="true">→</span>
+            </button>
+            <button class="game-choice" data-game="quiz">
+              <span class="game-choice-icon game-icon-yellow" aria-hidden="true">✳</span>
+              <span class="game-choice-copy"><span class="game-choice-kicker">QUICK CHALLENGE</span><strong>Phrase quiz</strong><span>Test your memory with five surprise phrases.</span></span>
+              <span class="game-choice-arrow" aria-hidden="true">→</span>
+            </button>
+          </div>
+
+          <section class="game-panel" id="match-game" hidden aria-labelledby="match-title">
+            <button class="game-back" data-game-back>← All games</button>
+            <div class="game-panel-heading"><span class="game-choice-icon game-icon-peach" aria-hidden="true">▦</span><div><span class="game-choice-kicker">FLIP & FIND</span><h2 id="match-title">Phrase pairs</h2></div><span class="game-score" id="match-moves">0 moves</span></div>
+            <p class="game-instructions">Find the matching Italian phrase and English meaning. Tap two cards to turn them over.</p>
+            <div class="memory-grid" id="memory-grid"></div>
+            <p class="game-feedback" id="match-feedback" aria-live="polite">Ready when you are!</p>
+            <div class="game-finished" id="match-finished" hidden><strong>Bravissima! All pairs found.</strong><button class="button button-dark" id="match-restart">Play again <span aria-hidden="true">↻</span></button></div>
+          </section>
+
+          <section class="game-panel" id="listen-game" hidden aria-labelledby="listen-title">
+            <button class="game-back" data-game-back>← All games</button>
+            <div class="game-panel-heading"><span class="game-choice-icon game-icon-green" aria-hidden="true">♫</span><div><span class="game-choice-kicker">ASCOLTA!</span><h2 id="listen-title">Listen & choose</h2></div><span class="game-score" id="listen-progress">ROUND 1 OF 5</span></div>
+            <p class="game-instructions">Listen to the Italian, then choose its meaning. You can replay it whenever you like.</p>
+            <div class="listen-question" id="listen-question">
+              <span class="quiz-prompt">What did you hear?</span>
+              <button class="listen-play" id="listen-play"><span aria-hidden="true">♫</span> Play the Italian</button>
+              <div class="quiz-options" id="listen-options"></div>
+              <p class="quiz-feedback" id="listen-feedback" aria-live="polite"></p>
+              <button class="button button-dark" id="listen-next" hidden>Next round <span aria-hidden="true">→</span></button>
+            </div>
+            <div class="listen-complete" id="listen-complete" hidden>
+              <div class="complete-sparkle" aria-hidden="true">✳</div>
+              <h2>Orecchio fino!</h2>
+              <p id="listen-result-copy"></p>
+              <button class="button button-dark" id="listen-restart">Play again <span aria-hidden="true">↻</span></button>
+            </div>
+          </section>
+
+          <section class="game-panel" id="quiz-game" hidden aria-label="Phrase quiz">
+            <button class="game-back" data-game-back>← All games</button>
+            <div class="quiz-card" id="quiz-card">
+              <div class="quiz-topline"><span class="quiz-tag">QUICK PRACTICE</span><span class="quiz-progress" id="quiz-progress">QUESTION 1 OF 5</span></div>
+              <div class="quiz-progress-track"><span id="quiz-progress-bar"></span></div>
+              <div class="quiz-question-area">
+                <span class="quiz-prompt" id="quiz-prompt">What does this mean?</span>
+                <div class="quiz-italian-row"><h2 id="quiz-italian"></h2><button class="round-audio" id="quiz-audio" aria-label="Listen to phrase">♫</button></div>
+                <div class="quiz-options" id="quiz-options"></div>
+                <p class="quiz-feedback" id="quiz-feedback" aria-live="polite"></p>
+                <button class="button button-dark" id="quiz-next" hidden>Continue <span aria-hidden="true">→</span></button>
+              </div>
+            </div>
+            <div class="quiz-complete" id="quiz-complete" hidden>
+              <div class="complete-sparkle" aria-hidden="true">✳</div>
+              <p class="eyebrow">BRAVISSIMA!</p>
+              <h2>You showed up.<br />That's what counts.</h2>
+              <p id="quiz-result-copy"></p>
+              <button class="button button-dark" id="quiz-restart">Try again <span aria-hidden="true">↻</span></button>
+            </div>
+          </section>
+          <div class="practice-note"><span aria-hidden="true">♡</span> Getting it wrong is part of getting there. Keep going!</div>
+        </section>
+
+        <div class="lesson-overlay" id="lesson-overlay" hidden>
+          <section class="lesson-dialog" role="dialog" aria-modal="true" aria-labelledby="lesson-dialog-title">
+            <button class="dialog-close" id="lesson-close" aria-label="Close lesson">×</button>
+            <p class="eyebrow"><span class="eyebrow-line"></span> A LITTLE LESSON</p>
+            <h2 id="lesson-dialog-title"></h2>
+            <p class="dialog-description" id="lesson-dialog-description"></p>
+            <div class="dialog-phrases" id="dialog-phrases"></div>
+            <button class="button button-dark" id="lesson-complete">Mark lesson complete <span aria-hidden="true">✓</span></button>
+          </section>
+        </div>
+        <div class="toast" id="toast" role="status" aria-live="polite"></div>
+      </main>
+    </div>
+  </body>
+</html>
